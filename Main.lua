@@ -2,8 +2,11 @@ name = ""
 current_message = ""
 selected_message =0
 messages = {
-{"hi", "Hello there, "..name}
+{"hi", "Hello there, "..name.."!"},
+  {"bye", "Goodbye, "..name.."!"},
+  {"how are you", "I'm doing good."}
 }
+-- In this rewrite I put the messages into a table instead of inside the if statements.
 
 function say(message)
 io.write(message) -- i really don't know why I did this to be fair.
@@ -27,7 +30,13 @@ for i,m in pairs(v) do
 if current_message.lower() == m[1] then
 selected_message=1
 end
-
+        if current_message.lower() == m[2] then
+selected_message=2
+end
+        if current_message.lower() == m[3] then
+selected_message=3
+end
+io.write(messages[selected_message][2])
 
 end
 end
